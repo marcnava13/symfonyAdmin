@@ -1,0 +1,12 @@
+/web/bundles/
+!web/bundles/user/profilepics/default_avatar.png
+/app/bootstrap.php.cache
+/app/cache/*
+/app/config/parameters.yml
+/app/logs/*
+!app/cache/.gitkeep
+!app/logs/.gitkeep
+/build/
+/vendor/
+/bin/
+/composer.phar
