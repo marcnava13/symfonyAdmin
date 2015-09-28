@@ -1,7 +1,11 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
-    # - { resource: sonata_classification.yml }
+    - { resource: sonata/sonata_admin.yml }
+    - { resource: sonata/sonata_block.yml }
+    - { resource: sonata/sonata_media.yml }
+    - { resource: sonata/sonata_classification.yml }
+    - { resource: sonata/sonata_user.yml }
 
 framework:
     #esi:             ~
@@ -64,7 +68,10 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
-        auto_mapping: true
+        default_entity_manager: default
+        entity_managers:
+            default:
+                auto_mapping: true
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -73,38 +80,6 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
-
-# Sonata Configuration
-sonata_user:
-    security_acl: true
-    manager_type: orm # can be orm or mongodb
-    admin:
-        user:
-            class:      Application\Sonata\UserBundle\Admin\UserAdmin
-            controller:     SonataAdminBundle:CRUD
-            translation:    SonataUserBundle
-
-sonata_block:
-    default_contexts: [cms]
-    blocks:
-        # Your other blocks
-        sonata.user.block.menu:    # used to display the menu in profile pages
-        sonata.user.block.account: # used to display menu option (login option)
-        # Enable the SonataAdminBundle block
-        sonata.admin.block.admin_list:
-            contexts:   [admin]
-
-sonata_admin:
-    title: Administrator
-    security:
-            handler: sonata.admin.security.handler.role
-    dashboard:
-        blocks:
-            # display one dashboard block in the top zone with a col-md-6 HTML class
-            -
-                position: left
-                class: col-md-6
-                type: sonata.admin.block.admin_list
 
 # FOSUser Configuration
 fos_user:

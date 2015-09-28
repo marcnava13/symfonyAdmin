@@ -1,0 +1,11 @@
+sonata_admin:
+    title: Administrator
+    security:
+            handler: sonata.admin.security.handler.role
+    dashboard:
+        blocks:
+            # display one dashboard block in the top zone with a col-md-6 HTML class
+            -
+                position: top
+                class: col-md-6
+                type: sonata.admin.block.admin_list

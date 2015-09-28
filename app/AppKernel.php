@@ -21,18 +21,22 @@ class AppKernel extends Kernel
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Sonata\jQueryBundle\SonatajQueryBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
             
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
 
             new Sonata\AdminBundle\SonataAdminBundle(),
 
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
-
-            new JMS\SerializerBundle\JMSSerializerBundle(),
-
-            new FOS\UserBundle\FOSUserBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
+            new Sonata\IntlBundle\SonataIntlBundle(),
+            new Sonata\MediaBundle\SonataMediaBundle(),
+            new Sonata\ClassificationBundle\SonataClassificationBundle(),
+
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
+            new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
+            new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
